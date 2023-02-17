@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/4759b9b086.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+	<title></title>
+</head>
+<body>
+    <div id="whole-Container">
+   <div id="title">Miracle Dictionary</div>
+     <div id="dictionary">
+        <div id="HeadDiv">
+                  <div id="alignHeaderdiv">
+                    <div id="bookDiv">
+                        <img id="logoImg" src="/images/logo.svg"/>
+                    </div>
+                    <div id="spaceDiv">
+                          
+                    </div>
+                    <div id="selectDiv" >
+                          <select id="select" >
+                              <option id="sansserif" value="Sansserif">Sans serif</option>
+                              <option id="serif" value="Serif" >Serif</option>
+                              <option id="mono" value="Mono" >Mono</option>
+  
+                          </select>
+                    </div>
+                    <div id="checkboxDiv">
+                        <input type="checkbox" onclick="themeChange()" id="checkbox" />
+                    </div>
+                    <div id="moonDiv">
+                      <img id="moonImg" src="/images/icon-moon.svg"/>
+                    </div>
+                  </div>
+        </div>
+        <div id="searchContent">
+             <input  type="text" id="wordSearchInputBox" placeholder="search for any word...." required/> 
+             <div id="searchFont" >
+             <i id="searchIcon" class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <script >
+                $('#searchFont').click(function(){
+                    // let inputWord=;
+                     $('#mainContent').load(`/Dictionary?wordName=${$('#wordSearchInputBox').val()}`);
+                    //  console.log(inputWord)
+                })
+            </script>
+        </div>
+         <div id="mainContent">
+
+         </div>
+     </div>
+
+     
+
+
+
+    </div>
+
+    <script src="js/script.js"></script>
+	
+</body>
+</html>

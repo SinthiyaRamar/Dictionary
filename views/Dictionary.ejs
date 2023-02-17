@@ -1,0 +1,66 @@
+<div id="WordDetails" >
+    <script>
+        themeChange();
+    </script>
+    <div id="word">
+        <div id="wordsDiv" >
+           <div id="wordText">
+              <%=WordName%>
+           </div>
+           <div id="phonetic" >
+              <%=phonetic%>
+           </div>
+        </div>
+        <div id="audioDiv" >
+            <% let Phonetics= phonetics %>
+            <% let phoneticsLength= Phonetics.length %>
+           <%  for ( let i=0; i< Phonetics.length ; i++){%>
+            <% let audio= Phonetics[i].audio %>
+            <% if(audio!=""){%>
+            <img onclick="audio('<%=audio %>')" id="audioImg" src="/images/icon-play.svg"/>
+            <% i=phoneticsLength %>
+            <%}%>
+          <% }%>
+        </div>
+      </div>
+
+        <script>
+            function audio(value){
+                let url=value;
+                console.log(url)
+                let sound=new Audio(url);
+                sound.play();
+            }
+        </script>
+    <div id="WordMeaningWholeDiv">
+        <%let meaningsValue=meanings%>
+         <% let meaningLength=meaningsValue.length %> 
+         <% for(let j=0; j< meaningLength ; j++ ){ %>
+            
+    <div class="meaningDiv" >
+
+      <h4 class="noun" ><%=meaningsValue[j].partOfSpeech%> </h4>
+      <p class="meaning" >Meaning</p>
+      <div class="nounMeaning" >
+            <% let nounDefinitions=meaningsValue[j].definitions %>
+            <% let definitionslength=nounDefinitions.length %>
+
+            <div class="nounDefinitions">
+           <ul>
+              <% for(let i=0; i< definitionslength; i++ ) { %>
+              <li><%= Object.values(nounDefinitions[i]) %></li>
+              <% } %>
+            </ul>
+            </div>
+         </div>
+
+              <% } %>
+         
+    </div>
+</div>
+
+</div>
+
+<div id="source" >
+    Source :<a href="<%=sourceurl%>" target="_blank"><%=sourceurl%></a>
+ </div>
